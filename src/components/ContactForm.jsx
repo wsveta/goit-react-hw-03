@@ -3,7 +3,7 @@ import { useId } from "react";
 import { Form, Formik, Field } from "formik";
 import * as Yup from "yup";
 import { ErrorMessage } from "formik";
-import { nanoid } from 'nanoid';
+import { nanoid } from "nanoid";
 
 const initialValues = { name: "", number: "" };
 
@@ -23,7 +23,7 @@ const ContactForm = ({ onAdd }) => {
     onAdd({
       name: contacts.name,
       number: contacts.number,
-      id: nanoid()
+      id: nanoid(),
     });
     actions.resetForm();
   };
@@ -37,12 +37,19 @@ const ContactForm = ({ onAdd }) => {
         <label htmlFor={nameId} className={css.nameLabel}>
           Name
         </label>
-        <Field id={nameId} className={css.nameInput} name="name" type="text" />
+        <Field
+          autoComplete="on"
+          id={nameId}
+          className={css.nameInput}
+          name="name"
+          type="text"
+        />
         <ErrorMessage name="name" component="span" className={css.error} />
         <label htmlFor={numberId} className={css.numberLabel}>
           Number
         </label>
         <Field
+          autoComplete="on"
           id={numberId}
           className={css.numberInput}
           name="number"
