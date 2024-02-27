@@ -1,8 +1,6 @@
 .contacts {
-  padding-left: 430px;
   padding-top: 47px;
   width: 400px;
-  overflow-y: auto;
 }
 .contact {
   margin-bottom: 5px;

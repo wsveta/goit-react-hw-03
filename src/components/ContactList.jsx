@@ -1,9 +1,9 @@
 import Contact from "./Contact";
 import css from "./ContactList.module.css";
 
-const ContactList = ({ contacts, onDelete}) => {
+const ContactList = ({ contacts, onDelete, reff }) => {
     return contacts !== '' && (
-        <ul className={css.contacts}>
+        <ul className={css.contacts} ref={reff}>
       {contacts.map((contact) => (
         <li className={css.contact} key={contact.id}>
           <Contact

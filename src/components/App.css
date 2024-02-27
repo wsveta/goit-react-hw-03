@@ -5,6 +5,10 @@
 }
 
 .control-panel {
-  position: fixed;
+  align-self: flex-start;
+  position: -webkit-sticky;
+  position: sticky;
   width: 400px;
+  top: 0;
+  right: 0;
 }
