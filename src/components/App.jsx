@@ -3,23 +3,29 @@ import ContactList from "./ContactList";
 import SearchBox from "./SearchBox";
 import ContactForm from "./ContactForm";
 import { useState, useEffect } from "react";
-import toast, {Toaster} from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 function App() {
-  const [contacts, setContacts] = useState(
-    JSON.parse(localStorage.getItem("saved-contacts"))
-  );
+  const [contacts, setContacts] = useState(() => {
+    const savedContacts = window.localStorage.getItem("saved-contacts");
+
+    if (savedContacts !== null) {
+      return JSON.parse(savedContacts);
+    }
+    return {};
+  });
+  
   const [filter, setFilter] = useState("");
 
   const addContact = (newContact) => {
-    toast('Contact has been successfully created!');
+    toast("Contact has been successfully created!");
     setContacts((prevContacts) => {
       return [...prevContacts, newContact];
     });
   };
 
   const deleteContact = (id) => {
-    toast('Contact has been successfully deleted!');
+    toast("Contact has been successfully deleted!");
     setContacts((prevContacts) => {
       return prevContacts.filter((contact) => contact.id !== id);
     });
@@ -35,7 +41,7 @@ function App() {
 
   return (
     <div className="content">
-      <Toaster/>
+      <Toaster />
       <div className="control-panel">
         <h1>Phonebook</h1>
         <ContactForm onAdd={addContact} />
