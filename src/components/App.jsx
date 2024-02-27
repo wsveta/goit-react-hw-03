@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 function App() {
+  const [filter, setFilter] = useState("");
+
   const [contacts, setContacts] = useState(() => {
     const savedContacts = window.localStorage.getItem("saved-contacts");
 
@@ -14,10 +16,9 @@ function App() {
         contact.name.toLowerCase().includes(filter.toLowerCase())
       );
     }
-    return {};
+    return "";
   });
 
-  const [filter, setFilter] = useState("");
 
   const addContact = (newContact) => {
     toast("Contact has been successfully created!");
