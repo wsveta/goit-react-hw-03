@@ -1,0 +1,10 @@
+.content {
+  display: flex;
+  gap: 30px;
+  margin: 0 auto;
+}
+
+.control-panel {
+  position: fixed;
+  width: 400px;
+}

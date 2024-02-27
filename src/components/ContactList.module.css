@@ -1,0 +1,20 @@
+.contacts {
+  padding-left: 430px;
+  padding-top: 47px;
+  width: 400px;
+  overflow-y: auto;
+}
+.contact {
+  margin-bottom: 5px;
+  display: flex;
+  padding: 15px 30px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(160, 160, 160, 0.103);
+  border-radius: 20px;
+}
+
+.contact div div {
+  gap: 10px;
+  display: flex;
+}
