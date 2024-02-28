@@ -28,14 +28,14 @@ function App() {
   );
 
   const addContact = (newContact) => {
-    toast("Contact has been successfully created!");
+    toast("Contact has been successfully created!", { duration: 1500 });
     setContacts((prevContacts) => {
       return [...prevContacts, newContact];
     });
   };
 
   const deleteContact = (id) => {
-    toast("Contact has been successfully deleted!");
+    toast("Contact has been successfully deleted!", { duration: 1500 });
     setContacts((prevContacts) => {
       return prevContacts.filter((contact) => contact.id !== id);
     });
@@ -53,7 +53,11 @@ function App() {
         <ContactForm onAdd={addContact} />
         <SearchBox value={filter} onFilter={setFilter} />
       </div>
-      <ContactList reff={parent} contacts={visibleContacts} onDelete={deleteContact} />
+      <ContactList
+        reff={parent}
+        contacts={visibleContacts}
+        onDelete={deleteContact}
+      />
     </div>
   );
 }
