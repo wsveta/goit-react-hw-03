@@ -8,7 +8,7 @@ import autoAnimate from "@formkit/auto-animate";
 
 function App() {
   const [filter, setFilter] = useState("");
-  const parent = useRef(null);
+  const parent = useRef([]);
 
   useEffect(() => {
     parent.current && autoAnimate(parent.current);
