@@ -2,17 +2,12 @@ import "./App.css";
 import ContactList from "./ContactList";
 import SearchBox from "./SearchBox";
 import ContactForm from "./ContactForm";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import autoAnimate from "@formkit/auto-animate";
 
 function App() {
   const [filter, setFilter] = useState("");
-  const parent = useRef([]);
-
-  useEffect(() => {
-    parent.current && autoAnimate(parent.current);
-  }, [parent]);
+  
 
   const [contacts, setContacts] = useState(() => {
     const savedContacts = window.localStorage.getItem("saved-contacts");
@@ -54,7 +49,6 @@ function App() {
         <SearchBox value={filter} onFilter={setFilter} />
       </div>
       <ContactList
-        reff={parent}
         contacts={visibleContacts}
         onDelete={deleteContact}
       />
