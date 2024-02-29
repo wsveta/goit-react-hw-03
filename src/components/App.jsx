@@ -7,15 +7,13 @@ import toast, { Toaster } from "react-hot-toast";
 
 function App() {
   const [filter, setFilter] = useState("");
-  
-
   const [contacts, setContacts] = useState(() => {
     const savedContacts = window.localStorage.getItem("saved-contacts");
 
     if (savedContacts !== null) {
       return JSON.parse(savedContacts);
     }
-    return "";
+    return [];
   });
 
   const visibleContacts = contacts.filter((contact) =>
@@ -42,8 +40,8 @@ function App() {
 
   return (
     <div className="content">
-      <Toaster />
       <div className="control-panel">
+      <Toaster />
         <h1>Phonebook</h1>
         <ContactForm onAdd={addContact} />
         <SearchBox value={filter} onFilter={setFilter} />
